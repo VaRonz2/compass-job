@@ -1,0 +1,24 @@
+# Dependencies and local caches
+node_modules/
+.vite/
+.cache/
+
+# Build output / generated artifacts
+dist/
+build/
+output/
+data/sources/
+data/companies-inline.js
+data/sources/_pydeps/
+*.pyc
+__pycache__/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local environment files
+.env
+.env.*
