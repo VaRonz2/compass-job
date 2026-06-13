@@ -33,8 +33,8 @@ ComPASS is being shaped from a static prototype into a focused job-hunting tool 
   - `常见问题`
 - Job Learning keeps:
   - external practice/study links
-  - 1000 self-built practice questions
-  - quiz flow: choose category, randomize a question, click one of 4 choices, then show red/green feedback and explanation
+  - 1000 Japanese self-built practice questions
+  - quiz flow: choose category, randomize a question, click one of 4 choices, then show Japanese red/green feedback and explanation
   - reverse questions with user-written answers
 - My Page calendar and schedule ratio should stay around 6:4 on desktop.
 - Personal `締め切り` should focus on selected/favorite companies.
@@ -46,18 +46,19 @@ ComPASS is being shaped from a static prototype into a focused job-hunting tool 
 
 - `node --check app.js` passed after the latest UI cleanup.
 - `http://localhost:5173/` returned 200.
-- Browser loaded `styles.css?v=38` and `app.js?v=38`.
-- Browser check confirmed the quiz shows 1000 questions, hides answers before selection, and marks selected answers red/green after clicking.
+- Browser loaded `styles.css?v=39` and `app.js?v=39`.
+- Browser check confirmed company count is 1500 and embedded fallback count is 1500.
+- Browser check confirmed the quiz shows 1000 questions, hides answers before selection, uses Japanese UI copy, and marks selected answers red/green after clicking.
 - Browser check confirmed My Page certificate merge, company board helper, and compact local data card.
 - Browser check confirmed My Page removed resume/pipeline/file/company-link/memo blocks and calendar ratio was 0.60.
 - Browser check confirmed Job Learning only showed:
-  - 做题网站 / 学习入口
-  - 自建题库训练
-  - 逆问题
+  - 演習サイト / 学習入口
+  - 自作問題演習
+  - 逆質問
 
 ## Known Risks
 
-- The project is not a Git repository.
+- The project is a Git repository on `main`, pushed to `https://github.com/VaRonz2/compass-job`.
 - Company data contains candidate/sample fields and must not be treated as fully verified.
 - `index.html` is very large because of embedded fallback company data.
 - LocalStorage data can be lost if browser data is cleared.

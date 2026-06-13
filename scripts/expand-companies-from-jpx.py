@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path("data/sources/_pydeps")))
 import pandas as pd
 
 
-TARGET_COUNT = 1000
+TARGET_COUNT = 1500
 TODAY = "2026-06-11"
 JPX_URL = "https://www.jpx.co.jp/markets/statistics-equities/misc/01.html"
 COMPANIES_PATH = Path("data/companies.json")

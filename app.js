@@ -76,7 +76,7 @@ async function loadCompanies() {
   }
 
   try {
-    const response = await fetch("data/companies.json?v=33");
+    const response = await fetch("data/companies.json?v=34");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     companies = data.map(normalizeLoadedCompany);
@@ -512,10 +512,10 @@ const homeStages = [
   {
     id: "interview",
     title: "面试准备",
-    subtitle: "SPI / ES / 逆问题",
+    subtitle: "SPI / ES / 逆質問",
     page: "jobLearning",
     action: "练面试",
-    summary: "已有投递、说明会或面试后，重点准备 SPI、ES、逆问题和自己的回答材料。",
+    summary: "エントリー、説明会、面接が進んだら、SPI、ES、逆質問、自分の回答素材を重点的に準備します。",
   },
   {
     id: "offer",
@@ -1822,50 +1822,50 @@ const studyResources = [
 const interviewQuestions = [
   {
     question: "1分程度で自己紹介をしてください。",
-    intent: "確認表达是否清楚、经历主线是否和岗位有关。",
-    goal: "用“所属 / 研究或专业 / 代表经历 / 応募理由”四段结束，控制在 45-60 秒。",
+    intent: "話の分かりやすさ、経験の軸、応募職種とのつながりを確認するためです。",
+    goal: "所属、専攻・研究、代表的な経験、応募理由の順で45〜60秒にまとめます。",
     example: "私は〇〇大学で経営を学び、留学生向けイベント運営で30名の集客を担当しました。本日は貴社の海外展開職で活かせる調整力を中心にお話しします。",
   },
   {
     question: "なぜ日本で就職したいですか。",
-    intent: "确认长期意愿、文化适应和签证风险。",
-    goal: "回答落在职业目标、行业机会、在日经验和持续学习，不要只说喜欢日本文化。",
-    example: "日本市场在〇〇领域有长期积累，我在留学期间也适应了团队协作和商务日语环境，希望在这里长期积累专业性。",
+    intent: "長期的に働く意思、日本での適応力、在留資格面の不安がないかを確認するためです。",
+    goal: "日本文化が好きという理由だけでなく、キャリア目標、業界機会、在日経験、継続的な学習意欲を伝えます。",
+    example: "日本市場は〇〇領域で長期的な蓄積があり、留学中にチーム協働とビジネス日本語にも慣れてきました。今後も日本で専門性を高めたいと考えています。",
   },
   {
     question: "なぜ当社を志望していますか。",
-    intent: "看你是否研究过业务、岗位和公司价值观。",
-    goal: "把公司业务特点、岗位要求、自己的经历、入社后贡献连在一起。",
+    intent: "事業、職種、企業価値観をどこまで調べているかを見るためです。",
+    goal: "会社の事業特徴、職種で求められる力、自分の経験、入社後の貢献をつなげて話します。",
     example: "貴社の〇〇事業は海外顧客との接点が多く、私の中国語・日本語での調整経験を活かして顧客理解と提案に貢献できます。",
   },
   {
     question: "学生時代に最も力を入れたことは何ですか。",
-    intent: "通过真实经历判断行动力、团队协作和复盘能力。",
-    goal: "用 STAR：目标、困难、行动、结果、学到什么。最好带数字。",
-    example: "目标是把参加率从〇%提高到〇%。原因分析后，我把告知渠道分成SNS和课堂说明，结果参加人数增加到〇人。",
+    intent: "実際の経験から、行動力、チーム協働、振り返り力を判断するためです。",
+    goal: "STAR形式で、目標、困難、行動、結果、学びを数字も入れて説明します。",
+    example: "参加率を〇%から〇%へ上げることを目標にしました。原因を分析し、告知方法をSNSと授業内説明に分けた結果、参加人数を〇人まで増やしました。",
   },
   {
     question: "あなたの強みと弱みを教えてください。",
-    intent: "确认自我认知是否真实，弱项是否可控。",
-    goal: "强项给证据，弱项给改善动作，不要把弱项包装成空话。",
+    intent: "自己理解が現実的か、弱みを改善する行動が取れているかを確認するためです。",
+    goal: "強みには根拠を、弱みには改善行動をセットで伝えます。弱みをきれいな言葉でごまかさないことが大切です。",
     example: "強みは調整力です。弱みは完璧を求めて初動が遅くなる点で、現在は締切を分けて早めに共有するようにしています。",
   },
   {
     question: "入社後に挑戦したいことは何ですか。",
-    intent: "判断岗位理解、成长方向和配属匹配。",
-    goal: "说清短期能学习/执行什么，中长期想承担什么价值。",
+    intent: "職種理解、成長方向、配属との相性を見るためです。",
+    goal: "短期で学び実行できることと、中長期で担いたい価値を分けて話します。",
     example: "まずは商品・顧客理解を徹底し、将来的には海外顧客向けの提案や改善プロジェクトを任される人材になりたいです。",
   },
   {
     question: "周囲と意見が対立した時、どう対応しましたか。",
-    intent: "看协作方式、冲突处理和是否能用事实沟通。",
-    goal: "不要说“我会忍耐”。讲清你如何整理双方目的、找共同目标、提出替代方案。",
+    intent: "協働スタイル、対立時の対応、事実ベースで話せるかを見るためです。",
+    goal: "ただ我慢したと話すのではなく、双方の目的を整理し、共通目標と代替案をどう作ったかを伝えます。",
     example: "意見を人ではなく論点に分け、期限・品質・負担の3点で比較して合意案を作りました。",
   },
   {
     question: "最近気になっている業界ニュースはありますか。",
-    intent: "判断你是否真正关注行业，而不是只背公司官网。",
-    goal: "准备 1 条行业新闻，用“事实、影响、自己观点、和公司关联”四步回答。",
+    intent: "会社情報だけでなく、業界そのものに関心を持っているかを見るためです。",
+    goal: "事実、影響、自分の考え、志望企業との関連の4点で話せるニュースを1つ準備します。",
     example: "生成AIによる業務効率化に注目しています。単なる自動化ではなく、顧客対応品質の標準化にもつながると考えています。",
   },
 ];
@@ -1873,38 +1873,38 @@ const interviewQuestions = [
 const reverseQuestions = [
   {
     question: "入社1年目に最も期待される成果や行動は何ですか。",
-    intent: "拿到真实评价标准。",
-    goal: "表现出你愿意尽快适应并主动补足能力。",
+    intent: "新人に対する実際の評価基準を確認するためです。",
+    goal: "早く適応し、足りない力を自分から補う姿勢を示します。",
   },
   {
     question: "外国籍社員の配属、研修、在留資格手続きではどのようなサポートがありますか。",
-    intent: "确认支援制度，也让公司知道你会认真规划在留资格。",
-    goal: "问得自然，不要只围绕福利，要连接长期稳定入职。",
+    intent: "支援制度を確認し、在留資格も含めて長期的に働く準備があることを示すためです。",
+    goal: "福利厚生だけを聞くのではなく、安定して入社・就業するための確認として自然に聞きます。",
   },
   {
     question: "この職種で現在最も解決したい業務課題は何ですか。",
-    intent: "了解岗位真实需求。",
-    goal: "后续感谢邮件或二面里可以把自己的经验重新对齐这个课题。",
+    intent: "職種のリアルな課題と期待される役割を把握するためです。",
+    goal: "お礼メールや次回面接で、自分の経験をその課題に合わせて伝え直せるようにします。",
   },
   {
     question: "活躍している新人に共通する行動習慣はありますか。",
-    intent: "判断公司文化和成长方式。",
-    goal: "把面试结束前的印象拉回“我会成为这样的新人”。",
+    intent: "会社の文化と成長しやすい行動パターンを知るためです。",
+    goal: "面接の最後に、自分もそのように成長したいという前向きな印象を残します。",
   },
   {
     question: "入社前までに補強しておくべき知識や資格はありますか。",
-    intent: "得到准备清单。",
-    goal: "展示学习意愿，也给自己拿到证书和项目准备方向。",
+    intent: "入社前に準備すべき学習テーマを確認するためです。",
+    goal: "学習意欲を示しつつ、資格やプロジェクト準備の方向性を具体化します。",
   },
   {
     question: "配属後、最初の3か月はどのように仕事を覚えていきますか。",
-    intent: "确认新人培训方式和自学节奏。",
-    goal: "了解是否有 OJT、导师、轮岗或现场学习，同时体现你会主动做准备。",
+    intent: "新人育成の流れと、自分に必要な準備ペースを確認するためです。",
+    goal: "OJT、メンター、ローテーション、現場学習の有無を知り、主体的に準備する姿勢も示します。",
   },
   {
     question: "留学生出身の社員が活躍している部署や職種にはどのような特徴がありますか。",
-    intent: "看公司是否真的有外国籍员工活跃场景。",
-    goal: "不要只问人数；重点问能力如何被使用、需要补哪些差距。",
+    intent: "外国籍社員が実際に活躍している場面を確認するためです。",
+    goal: "人数だけでなく、語学力・異文化理解がどう活かされ、どの力を補うべきかを確認します。",
   },
 ];
 
@@ -2006,7 +2006,7 @@ const testPrepItems = [
 ];
 
 const practiceCategories = [
-  { value: "all", label: "全部题型" },
+  { value: "all", label: "全ての問題" },
   { value: "SPI言語", label: "SPI 言語" },
   { value: "SPI非言語", label: "SPI 非言語" },
   { value: "玉手箱計数", label: "玉手箱 計数" },
@@ -2071,7 +2071,7 @@ function buildPracticeQuestions() {
       answer,
       explanation,
       difficulty,
-      sourceType: "原创题型参考",
+      sourceType: "オリジナル類題",
     });
   };
 
@@ -2430,7 +2430,7 @@ function buildPracticeQuestions() {
       title: round === 0 ? base.title : `${base.title} 再演習${round + 1}`,
       choices: normalizePracticeChoices({ ...base, answer }, index + round),
       answer,
-      sourceType: round === 0 ? base.sourceType : `${base.sourceType} / 変化問題`,
+      sourceType: round === 0 ? base.sourceType : `${base.sourceType} / バリエーション`,
     };
   });
 }
@@ -2440,45 +2440,45 @@ const practiceQuestions = buildPracticeQuestions();
 const practiceSites = [
   {
     name: "SPI3 公式",
-    type: "官方说明",
+    type: "公式情報",
     url: "https://www.spi.recruit.co.jp/",
-    note: "确认 SPI 的能力検査、性格検査、实施形式和基本结构。",
-    use: "先看考试构成，不把它当刷题站。",
+    note: "SPIの能力検査、性格検査、実施形式、基本構成を確認できます。",
+    use: "まず試験構成を確認し、出題範囲を把握する入口として使います。",
   },
   {
     name: "リクナビ 就活準備",
-    type: "就活媒体",
+    type: "就活メディア",
     url: "https://job.rikunabi.com/contents/",
-    note: "适合看自我分析、ES、面试、Webテスト准备流程。",
-    use: "用来补流程和面试准备，不要只刷题。",
+    note: "自己分析、ES、面接、Webテスト準備の流れを確認できます。",
+    use: "選考準備の全体像を補強し、演習だけに偏らないようにします。",
   },
   {
     name: "マイナビ 学生の窓口",
-    type: "学习文章",
+    type: "学習記事",
     url: "https://gakumado.mynavi.jp/",
-    note: "可搜索 SPI、玉手箱、面试、逆質問等就活文章。",
-    use: "用关键词搜索题型和解法。",
+    note: "SPI、玉手箱、面接、逆質問などの就活記事を検索できます。",
+    use: "苦手な問題タイプや解き方をキーワードで調べる時に使います。",
   },
   {
     name: "JASSO 留学生就職支援",
     type: "留学生向け",
     url: "https://www.jasso.go.jp/ryugaku/after_study_j/job/",
-    note: "面向外国人留学生的日本就职信息、活动和注意点。",
-    use: "确认留学生特有的在留资格、学校支援和求职资源。",
+    note: "外国人留学生向けの日本就職情報、イベント、注意点を確認できます。",
+    use: "在留資格、学校支援、留学生向けの公的情報を確認する時に使います。",
   },
   {
     name: "One Career 就活対策",
-    type: "选考经验",
+    type: "選考情報",
     url: "https://www.onecareer.jp/",
-    note: "可以查企业选考流程、ES、面试经验和Web测试类型。",
-    use: "查公司前先确认是否需要登录和信息来源可信度。",
+    note: "企業ごとの選考フロー、ES、面接体験、Webテスト傾向を調べられます。",
+    use: "企業別に確認し、情報の時期と信頼度も合わせて見ます。",
   },
   {
     name: "外資就活ドットコム",
-    type: "高难度选考",
+    type: "難関選考",
     url: "https://gaishishukatsu.com/",
-    note: "咨询、外资、金融、综合商社等高难度选考经验较多。",
-    use: "适合准备ケース面接、GD、外资Webテスト。",
+    note: "コンサル、外資、金融、総合商社などの難関選考情報が多いサイトです。",
+    use: "ケース面接、GD、外資系Webテストの準備に使います。",
   },
 ];
 
@@ -4037,13 +4037,13 @@ function renderQuestionList(target, questions, scope) {
         <details class="qa-item qa-collapse">
           <summary>
             <strong>${escapeHtml(item.question)}</strong>
-            ${savedAnswer ? "<small>已填写</small>" : "<small>点击填写</small>"}
+            ${savedAnswer ? "<small>記入済み</small>" : "<small>クリックして記入</small>"}
           </summary>
           <div class="qa-collapse-body">
             <textarea class="answer-textarea" rows="4" data-interview-answer="${answerKey}" placeholder="ここに自分の回答を書いてください">${escapeHtml(savedAnswer)}</textarea>
-            <p><span>为什么问：</span>${escapeHtml(item.intent)}</p>
+            <p><span>質問意図：</span>${escapeHtml(item.intent)}</p>
             <p><span>回答目的：</span>${escapeHtml(item.goal)}</p>
-            ${item.example ? `<p><span>回答骨架：</span>${escapeHtml(item.example)}</p>` : ""}
+            ${item.example ? `<p><span>回答の型：</span>${escapeHtml(item.example)}</p>` : ""}
           </div>
         </details>
       `;
@@ -4114,17 +4114,17 @@ function renderPracticeQuiz() {
   const question = ensurePracticeQuestion();
   if (!question) {
     elements.quizStats.innerHTML = "";
-    elements.quizCard.innerHTML = '<div class="mini-empty">这个分类暂时没有题目</div>';
+    elements.quizCard.innerHTML = '<div class="mini-empty">このカテゴリにはまだ問題がありません</div>';
     return;
   }
 
-  const categoryLabel = practiceCategories.find((item) => item.value === state.practiceCategory)?.label || "全部题型";
+  const categoryLabel = practiceCategories.find((item) => item.value === state.practiceCategory)?.label || "全ての問題";
   const choices = normalizePracticeChoices(question, Number(question.id.replace(/\D/g, "")) || 0);
   const selected = state.selectedPracticeAnswer;
   const isAnswered = Boolean(selected);
   const isCorrect = selected === question.answer;
   const choicesHtml = `
-    <div class="quiz-choice-list" role="list" aria-label="回答选项">
+    <div class="quiz-choice-list" role="list" aria-label="選択肢">
       ${choices
         .map((choice, index) => {
           const marker = ["A", "B", "C", "D"][index] || String(index + 1);
@@ -4144,19 +4144,19 @@ function renderPracticeQuiz() {
   const feedbackHtml = isAnswered
     ? `
       <div class="quiz-feedback ${isCorrect ? "correct" : "wrong"}" role="status">
-        <strong>${isCorrect ? "回答正确" : "回答错误"}</strong>
+        <strong>${isCorrect ? "正解です" : "不正解です"}</strong>
         <span>${
           isCorrect
-            ? "很好，继续保持这个解题节奏。"
-            : `正确答案是：${escapeHtml(question.answer)}`
+            ? "この解き方のリズムで次の問題に進みましょう。"
+            : `正解は「${escapeHtml(question.answer)}」です。`
         }</span>
       </div>
     `
-    : '<div class="quiz-feedback pending" role="status">请选择一个选项，选择后才会显示正误和解析。</div>';
+    : '<div class="quiz-feedback pending" role="status">選択肢を1つ選んでください。選んだ後に正誤と解説が表示されます。</div>';
 
   elements.quizStats.innerHTML = `
-    <span>题库 ${practiceQuestions.length} 题</span>
-    <span>${escapeHtml(categoryLabel)}：${pool.length}题</span>
+    <span>問題数 ${practiceQuestions.length} 問</span>
+    <span>${escapeHtml(categoryLabel)}：${pool.length}問</span>
     <span>${escapeHtml(question.id)} / ${escapeHtml(question.difficulty)}</span>
   `;
   elements.quizCard.innerHTML = `
@@ -4171,14 +4171,14 @@ function renderPracticeQuiz() {
       ${choicesHtml}
       ${feedbackHtml}
       <div class="quiz-answer ${isAnswered ? "visible" : ""}">
-        <strong>答案 / 回答方針</strong>
+        <strong>正解 / 解き方</strong>
         <p>${escapeHtml(question.answer)}</p>
         <small>${escapeHtml(question.explanation)}</small>
       </div>
     </article>
   `;
   if (elements.quizRevealButton) {
-    elements.quizRevealButton.textContent = "重新作答";
+    elements.quizRevealButton.textContent = "もう一度解く";
     elements.quizRevealButton.disabled = !isAnswered;
   }
 }
@@ -4591,7 +4591,7 @@ function nextActionForCompany(company, status) {
   if (status === "preparing") return "下一步：完成 ES / 履历书版本";
   if (status === "applied") return "下一步：等待说明会或一次筛选结果";
   if (status === "briefing") return "下一步：整理说明会笔记，准备 ES";
-  if (status === "interview") return "下一步：准备面试问题和逆问题";
+  if (status === "interview") return "次にやること：面接質問と逆質問を準備";
   if (status === "waiting") return "下一步：等待结果，记录复盘";
   if (status === "offer") return "下一步：比较条件和签证流程";
   return "下一步：决定是否继续跟进";
@@ -5215,7 +5215,7 @@ document.addEventListener("input", (event) => {
   writeStorage(storageKeys.interviewAnswers, state.interviewAnswers);
   const qaItem = answerBox.closest(".qa-collapse");
   const status = qaItem?.querySelector("summary small");
-  if (status) status.textContent = answerBox.value.trim() ? "已填写" : "点击填写";
+  if (status) status.textContent = answerBox.value.trim() ? "記入済み" : "クリックして記入";
 });
 
 document.addEventListener("click", (event) => {
