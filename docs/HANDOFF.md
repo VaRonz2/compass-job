@@ -33,16 +33,22 @@ ComPASS is being shaped from a static prototype into a focused job-hunting tool 
   - `常见问题`
 - Job Learning keeps:
   - external practice/study links
-  - 500 self-built practice questions
+  - 1000 self-built practice questions
+  - quiz flow: choose category, randomize a question, click one of 4 choices, then show red/green feedback and explanation
   - reverse questions with user-written answers
 - My Page calendar and schedule ratio should stay around 6:4 on desktop.
 - Personal `締め切り` should focus on selected/favorite companies.
+- My Page certificate area now combines owned certificates and studying certificates in one card.
+- My Page local data tools are intentionally compact.
+- Company stage board includes a helper explaining how to use favorite/added companies and status buttons.
 
 ## Verified Recently
 
 - `node --check app.js` passed after the latest UI cleanup.
 - `http://localhost:5173/` returned 200.
-- Browser loaded `styles.css?v=37` and `app.js?v=37`.
+- Browser loaded `styles.css?v=38` and `app.js?v=38`.
+- Browser check confirmed the quiz shows 1000 questions, hides answers before selection, and marks selected answers red/green after clicking.
+- Browser check confirmed My Page certificate merge, company board helper, and compact local data card.
 - Browser check confirmed My Page removed resume/pipeline/file/company-link/memo blocks and calendar ratio was 0.60.
 - Browser check confirmed Job Learning only showed:
   - 做题网站 / 学习入口

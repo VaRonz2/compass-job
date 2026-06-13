@@ -2028,6 +2028,36 @@ function formatNumber(value, digits = 0) {
   });
 }
 
+const defaultPracticeDistractors = [
+  "条件を整理せず、直感だけで選ぶ",
+  "問題文の数字をそのまま足す",
+  "選択肢を見て一番長いものを選ぶ",
+  "後で確認すると決めて空欄にする",
+  "全件を二重ループで総当たりする",
+  "設問の単位を確認せずに計算する",
+];
+
+function recommendedPracticeAnswer(question) {
+  if (question.choices?.includes(question.answer)) return question.answer;
+  if (question.category === "性格検査") {
+    return (
+      question.choices?.find((choice) => /状況を共有|やや当てはまる|期限を守る/.test(choice)) ||
+      question.choices?.[0] ||
+      question.answer
+    );
+  }
+  return question.answer;
+}
+
+function normalizePracticeChoices(question, seed = 0) {
+  const correct = recommendedPracticeAnswer(question);
+  const sourceChoices = Array.isArray(question.choices) ? question.choices.filter(Boolean) : [];
+  const choices = [correct, ...sourceChoices, ...defaultPracticeDistractors].filter(Boolean);
+  const uniqueChoices = [...new Set(choices)];
+  const distractors = uniqueChoices.filter((choice) => choice !== correct);
+  return rotateList([correct, ...distractors.slice(0, 3)], seed);
+}
+
 function buildPracticeQuestions() {
   const questions = [];
   const addQuestion = ({ category, subcategory, title, question, choices = [], answer, explanation, difficulty = "標準" }) => {
@@ -2389,7 +2419,20 @@ function buildPracticeQuestions() {
     });
   }
 
-  return questions.slice(0, 500);
+  const targetCount = 1000;
+  return Array.from({ length: targetCount }, (_, index) => {
+    const base = questions[index % questions.length];
+    const round = Math.floor(index / questions.length);
+    const answer = recommendedPracticeAnswer(base);
+    return {
+      ...base,
+      id: `Q${String(index + 1).padStart(4, "0")}`,
+      title: round === 0 ? base.title : `${base.title} 再演習${round + 1}`,
+      choices: normalizePracticeChoices({ ...base, answer }, index + round),
+      answer,
+      sourceType: round === 0 ? base.sourceType : `${base.sourceType} / 変化問題`,
+    };
+  });
 }
 
 const practiceQuestions = buildPracticeQuestions();
@@ -2743,7 +2786,7 @@ const state = {
   interviewAnswers: readStorage(storageKeys.interviewAnswers, {}),
   practiceCategory: "all",
   currentPracticeQuestionId: "",
-  practiceAnswerVisible: false,
+  selectedPracticeAnswer: "",
   certificateCareerFilter: "all",
   certificateCategoryFilter: "all",
   editingCompanyId: null,
@@ -4046,7 +4089,7 @@ function ensurePracticeQuestion() {
   const current = pool.find((question) => question.id === state.currentPracticeQuestionId);
   if (current) return current;
   state.currentPracticeQuestionId = pool[0].id;
-  state.practiceAnswerVisible = false;
+  state.selectedPracticeAnswer = "";
   return pool[0];
 }
 
@@ -4076,12 +4119,43 @@ function renderPracticeQuiz() {
   }
 
   const categoryLabel = practiceCategories.find((item) => item.value === state.practiceCategory)?.label || "全部题型";
-  const choicesHtml = question.choices?.length
-    ? `<ol class="quiz-choice-list">${question.choices.map((choice) => `<li>${escapeHtml(choice)}</li>`).join("")}</ol>`
-    : "";
+  const choices = normalizePracticeChoices(question, Number(question.id.replace(/\D/g, "")) || 0);
+  const selected = state.selectedPracticeAnswer;
+  const isAnswered = Boolean(selected);
+  const isCorrect = selected === question.answer;
+  const choicesHtml = `
+    <div class="quiz-choice-list" role="list" aria-label="回答选项">
+      ${choices
+        .map((choice, index) => {
+          const marker = ["A", "B", "C", "D"][index] || String(index + 1);
+          let resultClass = "";
+          if (isAnswered && choice === question.answer) resultClass = "correct";
+          if (isAnswered && choice === selected && choice !== question.answer) resultClass = "wrong";
+          return `
+            <button class="quiz-choice-button ${resultClass}" type="button" data-practice-choice-index="${index}" ${isAnswered ? "disabled" : ""}>
+              <span>${marker}</span>
+              <strong>${escapeHtml(choice)}</strong>
+            </button>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
+  const feedbackHtml = isAnswered
+    ? `
+      <div class="quiz-feedback ${isCorrect ? "correct" : "wrong"}" role="status">
+        <strong>${isCorrect ? "回答正确" : "回答错误"}</strong>
+        <span>${
+          isCorrect
+            ? "很好，继续保持这个解题节奏。"
+            : `正确答案是：${escapeHtml(question.answer)}`
+        }</span>
+      </div>
+    `
+    : '<div class="quiz-feedback pending" role="status">请选择一个选项，选择后才会显示正误和解析。</div>';
 
   elements.quizStats.innerHTML = `
-    <span>全${practiceQuestions.length}题</span>
+    <span>题库 ${practiceQuestions.length} 题</span>
     <span>${escapeHtml(categoryLabel)}：${pool.length}题</span>
     <span>${escapeHtml(question.id)} / ${escapeHtml(question.difficulty)}</span>
   `;
@@ -4095,7 +4169,8 @@ function renderPracticeQuiz() {
       <strong>${escapeHtml(question.title)}</strong>
       <p>${escapeHtml(question.question)}</p>
       ${choicesHtml}
-      <div class="quiz-answer ${state.practiceAnswerVisible ? "visible" : ""}">
+      ${feedbackHtml}
+      <div class="quiz-answer ${isAnswered ? "visible" : ""}">
         <strong>答案 / 回答方針</strong>
         <p>${escapeHtml(question.answer)}</p>
         <small>${escapeHtml(question.explanation)}</small>
@@ -4103,7 +4178,8 @@ function renderPracticeQuiz() {
     </article>
   `;
   if (elements.quizRevealButton) {
-    elements.quizRevealButton.textContent = state.practiceAnswerVisible ? "隐藏答案" : "显示答案";
+    elements.quizRevealButton.textContent = "重新作答";
+    elements.quizRevealButton.disabled = !isAnswered;
   }
 }
 
@@ -4112,7 +4188,7 @@ function pickRandomPracticeQuestion() {
   if (!pool.length) return;
   const question = pool[Math.floor(Math.random() * pool.length)];
   state.currentPracticeQuestionId = question.id;
-  state.practiceAnswerVisible = false;
+  state.selectedPracticeAnswer = "";
   renderPracticeQuiz();
 }
 
@@ -5121,14 +5197,14 @@ elements.certIndustrySelect.addEventListener("change", renderCertificateToolkit)
 elements.quizRandomButton?.addEventListener("click", pickRandomPracticeQuestion);
 
 elements.quizRevealButton?.addEventListener("click", () => {
-  state.practiceAnswerVisible = !state.practiceAnswerVisible;
+  state.selectedPracticeAnswer = "";
   renderPracticeQuiz();
 });
 
 elements.quizCategorySelect?.addEventListener("change", () => {
   state.practiceCategory = elements.quizCategorySelect.value;
   state.currentPracticeQuestionId = "";
-  state.practiceAnswerVisible = false;
+  state.selectedPracticeAnswer = "";
   renderPracticeQuiz();
 });
 
@@ -5143,6 +5219,16 @@ document.addEventListener("input", (event) => {
 });
 
 document.addEventListener("click", (event) => {
+  const practiceChoiceButton = event.target.closest("[data-practice-choice-index]");
+  if (practiceChoiceButton) {
+    const question = ensurePracticeQuestion();
+    if (!question) return;
+    const choices = normalizePracticeChoices(question, Number(question.id.replace(/\D/g, "")) || 0);
+    state.selectedPracticeAnswer = choices[Number(practiceChoiceButton.dataset.practiceChoiceIndex)] || "";
+    renderPracticeQuiz();
+    return;
+  }
+
   const certificateButton = event.target.closest("[data-certificate-id]");
   if (certificateButton) {
     const id = certificateButton.dataset.certificateId;
