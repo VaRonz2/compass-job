@@ -1,5 +1,8 @@
+/* ComPASS ownership marker: VaRonz2 / github-pages:varonz2/compass-job */
 :root {
   color-scheme: light;
+  --compass-owner: "VaRonz2";
+  --compass-origin: "github-pages:varonz2/compass-job";
   --ink: #102133;
   --muted: #64748b;
   --line: #d8e1ea;
