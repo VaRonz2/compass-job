@@ -374,6 +374,24 @@ input[type="range"] {
   padding: 30px;
 }
 
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 18px 12px 4px;
+  color: rgba(100, 116, 139, 0.78);
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.site-footer strong {
+  color: rgba(71, 84, 103, 0.82);
+  font-weight: 800;
+}
+
 .page-view {
   display: none;
 }
@@ -4467,6 +4485,13 @@ h1 {
 @media (max-width: 680px) {
   .workspace {
     padding: 20px 14px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 20px;
+    padding-top: 12px;
   }
 
   .app-header {

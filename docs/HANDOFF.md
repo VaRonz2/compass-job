@@ -46,7 +46,7 @@ ComPASS is being shaped from a static prototype into a focused job-hunting tool 
 
 - `node --check app.js` passed after the latest UI cleanup.
 - `http://localhost:5173/` returned 200.
-- Browser loaded `styles.css?v=41` and `app.js?v=39`.
+- Browser loaded `styles.css?v=42` and `app.js?v=39`.
 - Browser check confirmed company count is 1500 and embedded fallback count is 1500.
 - Browser check confirmed the quiz shows 1000 questions, hides answers before selection, uses Japanese UI copy, and marks selected answers red/green after clicking.
 - Browser check confirmed My Page certificate merge, company board helper, and compact local data card.
