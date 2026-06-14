@@ -915,11 +915,10 @@ input[type="range"] {
 
 .search-toolbar {
   display: grid;
-  grid-template-columns: minmax(0, 960px) 360px;
+  grid-template-columns: minmax(0, 1fr);
   gap: 12px;
   margin-bottom: 14px;
   align-items: start;
-  justify-content: start;
 }
 
 .company-intake-panel {
@@ -971,7 +970,7 @@ input[type="range"] {
 
 .compact-filter {
   align-self: start;
-  width: min(100%, 960px);
+  width: 100%;
   padding: 10px 12px;
 }
 
@@ -985,8 +984,8 @@ input[type="range"] {
 
 .compact-filter-grid {
   display: grid;
-  grid-template-columns: 1.25fr minmax(130px, 0.85fr) 1.2fr minmax(92px, 0.55fr);
-  gap: 7px 8px;
+  grid-template-columns: minmax(220px, 1.2fr) minmax(128px, 0.8fr) minmax(232px, 1.25fr) minmax(96px, 0.58fr) minmax(118px, 0.72fr) minmax(152px, 1fr) minmax(76px, 0.44fr);
+  gap: 8px;
   align-items: end;
 }
 
@@ -1033,7 +1032,7 @@ input[type="range"] {
 }
 
 .compact-filter .range-field {
-  grid-column: span 2;
+  grid-column: auto;
 }
 
 .compact-filter .range-header {
@@ -1048,8 +1047,24 @@ input[type="range"] {
 
 .search-metrics {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(126px, 1fr));
   gap: 8px;
+}
+
+.search-toolbar .metric-card {
+  min-height: 82px;
+  padding: 11px 12px;
+}
+
+.search-toolbar .metric-card strong,
+.search-toolbar .metric-card.company-total-metric strong,
+.search-toolbar .metric-card.company-visible-metric strong {
+  margin-top: 6px;
+  font-size: 24px;
+}
+
+.search-toolbar .metric-card small {
+  margin-top: 6px;
 }
 
 .metric-card {
@@ -4304,6 +4319,14 @@ h1 {
 
   .search-toolbar {
     grid-template-columns: 1fr;
+  }
+
+  .compact-filter-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .search-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .qualification-layout {

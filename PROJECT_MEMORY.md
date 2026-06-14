@@ -32,7 +32,7 @@ PowerShell 执行策略问题：
 - 可优先使用 `start-server.cmd` 或 `npx vite --host 127.0.0.1` 一类方式。
 
 缓存版本：
-- 当前 `index.html` 引用 `styles.css?v=40`
+- 当前 `index.html` 引用 `styles.css?v=41`
 - 当前 `index.html` 引用 `app.js?v=39`
 - 当前 `app.js` fetch `data/companies.json?v=34`
 
