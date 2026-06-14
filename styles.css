@@ -915,10 +915,11 @@ input[type="range"] {
 
 .search-toolbar {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-columns: minmax(0, 960px) 360px;
   gap: 12px;
   margin-bottom: 14px;
-  align-items: stretch;
+  align-items: start;
+  justify-content: start;
 }
 
 .company-intake-panel {
@@ -969,7 +970,9 @@ input[type="range"] {
 }
 
 .compact-filter {
-  padding: 12px;
+  align-self: start;
+  width: min(100%, 960px);
+  padding: 10px 12px;
 }
 
 .compact-filter-head {
@@ -977,13 +980,13 @@ input[type="range"] {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .compact-filter-grid {
   display: grid;
   grid-template-columns: 1.25fr minmax(130px, 0.85fr) 1.2fr minmax(92px, 0.55fr);
-  gap: 8px;
+  gap: 7px 8px;
   align-items: end;
 }
 
