@@ -76,7 +76,7 @@ async function loadCompanies() {
   }
 
   try {
-    const response = await fetch("data/companies.json?v=34");
+    const response = await fetch("data/companies.json?v=35");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     companies = data.map(normalizeLoadedCompany);
@@ -529,40 +529,49 @@ const homeStages = [
 
 const briefingEvents = [
   {
-    title: "マイナビ インターンシップ＆キャリア発見EXPO",
-    date: "2026-06-14",
-    time: "12:00-17:00",
-    place: "東京ビッグサイト",
-    target: "2028卒 / インターン・キャリア",
-    sourceName: "マイナビ公式イベント",
-    url: "https://job.mynavi.jp/conts/event/2028/10561/index.html",
+    title: "東京都主催 外国人材向けオンライン合同企業説明会",
+    date: "2026-06-16",
+    time: "6/16-6/18 10:00-17:10",
+    place: "オンライン（Zoomウェビナー）",
+    target: "留学生・特定活動・日本で就職希望の外国人材 / 30社",
+    sourceName: "東京外国人材採用ナビセンター",
+    url: "https://tir-navicenter.metro.tokyo.lg.jp/student/foreigner-events/2026-06-16/",
   },
   {
-    title: "マイナビ インターンシップ＆キャリア発見EXPO",
-    date: "2026-07-12",
-    time: "12:00-17:00",
-    place: "東京ビッグサイト",
-    target: "2028卒 / 夏インターン",
-    sourceName: "マイナビ公式イベント",
-    url: "https://job.mynavi.jp/conts/event/2028/10562/index.html",
+    title: "外国人留学生大卒等 合同就職面接会",
+    date: "2026-06-24",
+    time: "12:30-16:30 / 予約締切 6/19 23:59",
+    place: "東京体育館 メインアリーナ",
+    target: "2027年3月卒業予定・卒業後おおむね3年以内の外国人留学生",
+    sourceName: "東京外国人雇用サービスセンター",
+    url: "https://jsite.mhlw.go.jp/tokyo-foreigner/news_topics/kigyou_minasama/mense/202601_1_sankakigyou.html",
   },
   {
-    title: "外国人留学生向け就職イベント",
-    date: "2026-07-18",
-    time: "日程要確認",
-    place: "東京 / オンライン",
-    target: "留学生 / 既卒可の企業も確認",
-    sourceName: "JASSO・大学キャリアセンター等で確認",
-    url: "https://www.jasso.go.jp/ryugaku/after_study_j/job/",
+    title: "東京サマーキャリアフォーラム 2026",
+    date: "2026-06-20",
+    time: "6/20-6/21 / 参加登録受付中",
+    place: "東京 / 対面イベント",
+    target: "日英バイリンガル・海外大学/大学院留学生など",
+    sourceName: "CFN CareerForum.Net",
+    url: "https://careerforum.net/ja/event/tks/",
   },
   {
-    title: "リクナビ 合同企業説明会",
-    date: "2026-07-25",
-    time: "日程要確認",
-    place: "首都圏 / オンライン",
-    target: "新卒 / インターン",
-    sourceName: "リクナビ公式イベントで確認",
-    url: "https://job.rikunabi.com/",
+    title: "ジェトロ オンライン合同企業説明会 2026 秋",
+    date: "2026-10-13",
+    time: "10/13-10/16 ライブ配信予定",
+    place: "オンライン",
+    target: "外国人留学生等の高度外国人材 / 約160社予定",
+    sourceName: "JETRO",
+    url: "https://www.jetro.go.jp/news/announcement/2026/4a8f5ed16bada4e8.html",
+  },
+  {
+    title: "外国人留学生のための就活準備セミナー",
+    date: "2026-07-02",
+    time: "12:30-13:00 / 複数回開催あり",
+    place: "オンライン",
+    target: "日本で就職を検討している外国人留学生",
+    sourceName: "マイナビ国際派就職",
+    url: "https://job.mynavi.jp/28/pc/corpinfo/displaySeminar/index?corpId=3016117&optNo=8URi0C",
   },
 ];
 

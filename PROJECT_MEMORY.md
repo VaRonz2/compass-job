@@ -33,8 +33,8 @@ PowerShell 执行策略问题：
 
 缓存版本：
 - 当前 `index.html` 引用 `styles.css?v=43`
-- 当前 `index.html` 引用 `app.js?v=39`
-- 当前 `app.js` fetch `data/companies.json?v=34`
+- 当前 `index.html` 引用 `app.js?v=40`
+- 当前 `app.js` fetch `data/companies.json?v=35`
 
 Git / 发布：
 - Git 仓库已初始化，默认分支 `main`
