@@ -76,7 +76,7 @@ async function loadCompanies() {
   }
 
   try {
-    const response = await fetch("data/companies.json?v=35");
+    const response = await fetch("data/companies.json?v=36");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     companies = data.map(normalizeLoadedCompany);
@@ -540,9 +540,9 @@ const briefingEvents = [
   {
     title: "外国人留学生大卒等 合同就職面接会",
     date: "2026-06-24",
-    time: "12:30-16:30 / 予約締切 6/19 23:59",
+    time: "12:30-16:30 / 入場予約 6/19 23:59まで",
     place: "東京体育館 メインアリーナ",
-    target: "2027年3月卒業予定・卒業後おおむね3年以内の外国人留学生",
+    target: "外国人留学生大卒等 / 特定技能マッチング同時開催",
     sourceName: "東京外国人雇用サービスセンター",
     url: "https://jsite.mhlw.go.jp/tokyo-foreigner/news_topics/kigyou_minasama/mense/202601_1_sankakigyou.html",
   },

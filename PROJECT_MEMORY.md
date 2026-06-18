@@ -1,6 +1,6 @@
 # ComPASS 项目记忆
 
-最后更新：2026-06-13
+最后更新：2026-06-18
 
 ## 产品定位
 
@@ -32,9 +32,9 @@ PowerShell 执行策略问题：
 - 可优先使用 `start-server.cmd` 或 `npx vite --host 127.0.0.1` 一类方式。
 
 缓存版本：
-- 当前 `index.html` 引用 `styles.css?v=43`
-- 当前 `index.html` 引用 `app.js?v=40`
-- 当前 `app.js` fetch `data/companies.json?v=35`
+- 当前 `index.html` 引用 `styles.css?v=44`
+- 当前 `index.html` 引用 `app.js?v=41`
+- 当前 `app.js` fetch `data/companies.json?v=36`
 
 Git / 发布：
 - Git 仓库已初始化，默认分支 `main`

@@ -46,8 +46,8 @@ ComPASS is being shaped from a static prototype into a focused job-hunting tool 
 
 - `node --check app.js` passed after the latest UI cleanup.
 - `http://localhost:5173/` returned 200.
-- Browser loaded `styles.css?v=43` and `app.js?v=40`.
-- Current company count is 1530, including 30 companies from the 2026-06-16 Tokyo foreign talent online joint company briefing event.
+- Browser loaded `styles.css?v=44` and `app.js?v=41`.
+- Current company count is 1543, including 30 companies from the 2026-06-16 Tokyo foreign talent online joint company briefing event and 13 companies from the 2026-06-24 MHLW/Tokyo Foreigner Employment Service Center specific skilled worker matching event.
 - Browser check confirmed the quiz shows 1000 questions, hides answers before selection, uses Japanese UI copy, and marks selected answers red/green after clicking.
 - Browser check confirmed My Page certificate merge, company board helper, and compact local data card.
 - Browser check confirmed My Page removed resume/pipeline/file/company-link/memo blocks and calendar ratio was 0.60.
